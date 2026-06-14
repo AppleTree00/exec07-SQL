@@ -1,9 +1,20 @@
+def get_score(prompt):
+    while True:
+        try:
+            score = int(input(prompt))
+            if 0 <= score <= 100:
+                return score
+            else:
+                print("점수는 0부터 100 사이로 입력해주세요.")
+        except ValueError:
+            print("올바른 숫자를 입력해주세요.")
+
 def print_report_card():
     # 1. 정보 및 점수 입력받기
     name = input("이름을 입력하세요: ")
-    kor = int(input("국어 점수를 입력하세요: "))
-    eng = int(input("영어 점수를 입력하세요: "))
-    com = int(input("컴퓨터 점수를 입력하세요: "))
+    kor = get_score("국어 점수를 입력하세요: ")
+    eng = get_score("영어 점수를 입력하세요: ")
+    com = get_score("컴퓨터 점수를 입력하세요: ")
 
     # 2. 총점 및 평균 계산
     total = kor + eng + com
